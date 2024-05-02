@@ -34,7 +34,7 @@ def speech_to_text(url):
 
         # STEP 4: Print the response
         transcript = response.results["channels"][0]["alternatives"][0]["transcript"]
-        print(transcript)
+        #print(transcript)
         
     except Exception as e:
         return f"Exception: {e}"
@@ -42,7 +42,7 @@ def speech_to_text(url):
     return transcript
 
 client = ElevenLabs(
-    api_key="623e37236fda749c8f75526b88530831"
+    api_key=ELEVENLABS_API_KEY
 )
 
 def text_to_speech_file(text: str) -> str:
@@ -70,7 +70,7 @@ def text_to_speech_file(text: str) -> str:
             if chunk:
                 f.write(chunk)
 
-    print(f"{save_file_path}: A new audio file was saved successfully!")
+    #print(f"{save_file_path}: A new audio file was saved successfully!")
 
     # Return the path of the saved audio file
     return save_file_path
