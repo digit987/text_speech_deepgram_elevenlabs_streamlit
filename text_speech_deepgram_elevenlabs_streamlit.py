@@ -42,7 +42,7 @@ def speech_to_text(url):
     return transcript
 
 client = ElevenLabs(
-    ELEVENLABS_API_KEY=ELEVENLABS_API_KEY,
+    EL_API_KEY=ELEVENLABS_API_KEY,
 )
 
 def text_to_speech_file(text: str) -> str:
