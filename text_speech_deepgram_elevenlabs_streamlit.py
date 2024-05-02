@@ -5,8 +5,8 @@ from elevenlabs.client import ElevenLabs
 import streamlit as st
 
 # Load environment variables
-os.environ["DG_API_KEY"] == st.secrets["DG_API_KEY"]
-os.environ["ELEVENLABS_API_KEY"] == st.secrets["ELEVENLABS_API_KEY"]
+os.environ["DG_API_KEY"] = st.secrets["DG_API_KEY"]
+os.environ["ELEVENLABS_API_KEY"] = st.secrets["ELEVENLABS_API_KEY"]
 
 def speech_to_text(url):
     from deepgram import (
