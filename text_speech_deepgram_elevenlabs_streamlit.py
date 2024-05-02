@@ -1,5 +1,4 @@
 import os
-from dotenv import load_dotenv
 import uuid
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
