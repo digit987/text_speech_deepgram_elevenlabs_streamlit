@@ -1,4 +1,4 @@
 deepgram-sdk==3.2.7
 elevenlabs==1.2.1
-streamlit==1.33.0
 python-dotenv
+streamlit==1.33.0
