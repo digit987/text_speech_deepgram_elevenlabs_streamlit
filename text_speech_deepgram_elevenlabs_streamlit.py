@@ -8,6 +8,7 @@ import streamlit as st
 os.environ["DG_API_KEY"] = st.secrets["DG_API_KEY"]
 os.environ["ELEVENLABS_API_KEY"] = st.secrets["ELEVENLABS_API_KEY"]
 
+
 def speech_to_text(url):
     from deepgram import (
         DeepgramClient,
@@ -37,7 +38,8 @@ def speech_to_text(url):
         #print(transcript)
         
     except Exception as e:
-        return f"Exception: {e}"
+        print(f"Exception: {e}")
+        return "Sorry! Some Error Occured in Transcription!"
 
     return transcript
 
@@ -78,11 +80,13 @@ def text_to_speech_file(text: str) -> str:
 def main():
     st.title("Text to Speech and back Conversion using Deepgram and ElevenLabs")
     url = st.text_input('Enter url of video: ')
-    audio_file_path = text_to_speech_file(speech_to_text(url))
-    audio_file = open(audio_file_path,'rb')
-    audio_bytes = audio_file.read()
-    st.audio(audio_bytes)
+    if url:
+        text=speech_to_text(url)
+        st.write("Transcripted text:", text)
+        audio_file_path = text_to_speech_file(text)
+        audio_file = open(audio_file_path,'rb')
+        audio_bytes = audio_file.read()
+        st.audio(audio_bytes)
 
 if __name__ == "__main__":
     main()
-    
