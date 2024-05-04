@@ -1,13 +1,18 @@
 import os
+from dotenv import load_dotenv
 import uuid
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 import streamlit as st
 
-# Load environment variables
-os.environ["DG_API_KEY"] = st.secrets["DG_API_KEY"]
-os.environ["ELEVENLABS_API_KEY"] = st.secrets["ELEVENLABS_API_KEY"]
+load_dotenv()
 
+# Load environment variables
+# os.environ["DG_API_KEY"] = st.secrets["DG_API_KEY"]
+# os.environ["ELEVENLABS_API_KEY"] = st.secrets["ELEVENLABS_API_KEY"]
+
+DG_API_KEY = os.getenv("DG_API_KEY")
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
 
 def speech_to_text(url):
     from deepgram import (
